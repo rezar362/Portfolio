@@ -37,3 +37,12 @@ Given a search query like "ps4 controller charger", rank products by relevance:
 - NGD best for top-10 result quality (NDCG) — what users actually see
 
 ## NGD Formula
+Adapted for multi-term queries using mean document frequencies and term intersection for co-occurrence estimation.
+
+## Dataset
+- **Amazon ESCI** — real Amazon search queries with human relevance judgments
+- 50K query-product pairs sampled from 2M total
+- 4 relevance labels: Exact, Substitute, Complement, Irrelevant
+
+## Tech Stack
+Python, scikit-learn, rank-bm25, sentence-transformers, SBERT, Matplotlib, Google Colab
