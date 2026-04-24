@@ -37,6 +37,22 @@ Given a search query like "ps4 controller charger", rank products by relevance:
 - NGD best for top-10 result quality (NDCG) — what users actually see
 
 ## NGD Formula
+Original NGD formula:
+
+    NGD(x,y) = [ max(log f(x), log f(y)) - log f(x,y) ]
+               -------------------------------------------
+               [ log N - min(log f(x), log f(y)) ]
+
+Where:
+- f(x) = number of documents containing term x
+- f(y) = number of documents containing term y  
+- f(x,y) = number of documents containing both x and y
+- N = total number of documents in corpus
+
+Corpus adaptation for multi-term queries:
+- f(x) = mean document frequency of all query terms
+- f(y) = mean document frequency of all product terms
+- f(x,y) = mean document frequency of shared terms (intersection)
 Adapted for multi-term queries using mean document frequencies and term intersection for co-occurrence estimation.
 
 ## Dataset
