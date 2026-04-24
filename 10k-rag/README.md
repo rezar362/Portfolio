@@ -1,6 +1,6 @@
 # 📊 10-K RAG System — Nasdaq 100
 
-[Open in Colab](https://colab.research.google.com/github/rezar362/Portfolio/blob/main/10k-rag/10K_RAG.ipynb)
+[Open in Colab](https://colab.research.google.com/github/rezar362/Portfolio/blob/main/10k-rag/RAG_10K.ipynb)
 
 ## Overview
 Retrieval-Augmented Generation system over SEC 10-K annual filings for the top 20 Nasdaq 100 companies. Ask natural language questions and get grounded answers sourced directly from official filings.
