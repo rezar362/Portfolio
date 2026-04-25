@@ -7,41 +7,46 @@
   <style>
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.75;
+      line-height: 1.7;
       color: #1a1a1a;
       background: #ffffff;
-      max-width: 720px;
-      margin: 80px auto;
+      max-width: 780px;
+      margin: 60px auto;
       padding: 0 24px;
     }
-    h1 {
-      font-size: 2.4rem;
+    h1, h2, h3 {
       font-weight: 500;
-      margin: 0 0 8px 0;
     }
-    p {
-      margin: 12px 0;
+    h1 {
+      font-size: 2.3rem;
+      margin-bottom: 8px;
+    }
+    p, li {
+      margin: 10px 0;
     }
     strong {
       color: #000;
     }
     .metric {
-      font-size: 2.6rem;
+      font-size: 2.4rem;
       font-weight: 500;
-      margin: 32px 0 4px 0;
+      margin: 24px 0 6px 0;
     }
-    h2 {
-      font-size: 1.35rem;
-      margin-top: 48px;
-      margin-bottom: 20px;
-      font-weight: 500;
+    .section {
+      margin: 48px 0;
     }
     .project {
-      margin: 32px 0;
+      margin: 36px 0;
+      padding-bottom: 24px;
+      border-bottom: 1px solid #eee;
     }
-    .project h3 {
-      margin: 0 0 8px 0;
-      font-weight: 500;
+    .project:last-child {
+      border-bottom: none;
+    }
+    .tech {
+      font-size: 0.95rem;
+      color: #555;
+      margin: 8px 0;
     }
     a {
       color: #0066cc;
@@ -51,10 +56,11 @@
       text-decoration: underline;
     }
     .footer {
-      margin-top: 80px;
-      padding-top: 24px;
+      margin-top: 60px;
+      padding-top: 20px;
       border-top: 1px solid #eee;
       font-size: 0.95rem;
+      color: #555;
     }
   </style>
 </head>
@@ -62,47 +68,76 @@
 
   <h1>Reza Roshani</h1>
   <p><strong>AI Engineer &amp; Quantitative Investment Advisor @ ScionAI</strong></p>
-  <p>Ph.D. in Computer Science. Building predictive and generative AI systems for investment intelligence.</p>
+  <p>Ph.D. in Computer Science. Building production-grade predictive and generative AI systems for investment intelligence.</p>
 
   <div class="metric">250%</div>
   <p>Cumulative live portfolio return over 2.5 years</p>
 
-  <h2>Selected Projects</h2>
+  <div class="metric">95%</div>
+  <p>Test accuracy — Financial Sentiment model</p>
+
+  <div class="metric">8×</div>
+  <p>Reduction in ad cost-per-acquisition</p>
+
+  <h2>Projects</h2>
+
+  <div class="project">
+    <h3>Dental Radiograph Analysis</h3>
+    <p>End-to-end pipeline with YOLOv8m + SAM2 for detecting caries, impacted teeth, and periapical lesions in X-rays.</p>
+    <p class="tech">YOLOv8 · SAM2 · Roboflow · PyTorch</p>
+    <p>mAP50 <strong>0.903</strong> on impacted tooth detection</p>
+    <p><a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/dental-xray/notebook.ipynb">Open in Colab</a> • 
+       <a href="https://github.com/rezar362/Portfolio/tree/main/Dental-xray">GitHub</a></p>
+  </div>
 
   <div class="project">
     <h3>Stock Correlation Network — GAT</h3>
-    <p>Graph Attention Network modeling S&amp;P 500 as a correlation graph to predict 30-day stock outperformance.</p>
-    <p><a href="https://github.com/rezar362/Portfolio/tree/main/stock-gnn">GitHub</a> • 
-       <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/stock-gnn/notebook.ipynb">Colab</a></p>
-  </div>
-
-  <div class="project">
-    <h3>EarningsMood — CEO Voice Analysis</h3>
-    <p>Acoustic feature extraction from earnings calls to correlate vocal confidence with next-day stock returns.</p>
-    <p><a href="https://github.com/rezar362/Portfolio/tree/main/earnings_mood">GitHub</a> • Colab</p>
-  </div>
-
-  <div class="project">
-    <h3>10-K RAG — Nasdaq 100</h3>
-    <p>Retrieval-Augmented Generation system over SEC 10-K filings. Ask natural language questions about risks, strategy, and competition.</p>
-    <p><a href="https://github.com/rezar362/Portfolio/tree/main/10k-rag">GitHub</a></p>
+    <p>Graph Attention Network on S&amp;P 500 correlation graph for 30-day outperformance prediction.</p>
+    <p class="tech">PyTorch Geometric · GAT · NetworkX · Plotly</p>
+    <p><a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/stock-gnn/notebook.ipynb">Open in Colab</a> • 
+       <a href="https://github.com/rezar362/Portfolio/tree/main/stock-gnn">GitHub</a></p>
   </div>
 
   <div class="project">
     <h3>Financial Sentiment — DistilBERT</h3>
-    <p>Fine-tuned transformer for 3-class sentiment classification on financial news (Financial PhraseBank).</p>
-    <p><a href="https://github.com/rezar362/Portfolio/tree/main/Financial-sentiment">GitHub</a> • 
-       <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/Financial-sentiment/FInancial_sentiment.ipynb">Colab</a></p>
+    <p>Fine-tuned transformer for 3-class sentiment on financial news (Financial PhraseBank).</p>
+    <p class="tech">DistilBERT · HuggingFace · PyTorch</p>
+    <p>Val accuracy <strong>97.4%</strong> · Test accuracy <strong>95.6%</strong></p>
+    <p><a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/Financial-sentiment/FInancial_sentiment.ipynb">Open in Colab</a> • 
+       <a href="https://github.com/rezar362/Portfolio/tree/main/Financial-sentiment">GitHub</a></p>
+  </div>
+
+  <div class="project">
+    <h3>10-K RAG — Nasdaq 100</h3>
+    <p>Retrieval-Augmented Generation over SEC 10-K filings. Natural language questions on risks, strategy, and competition.</p>
+    <p class="tech">Mistral · LangChain · ChromaDB</p>
+    <p><a href="https://github.com/rezar362/Portfolio/tree/main/10k-rag">GitHub</a></p>
+  </div>
+
+  <div class="project">
+    <h3>EarningsMood — CEO Voice Analysis</h3>
+    <p>Acoustic features from earnings calls correlated with next-day stock returns.</p>
+    <p class="tech">librosa · PyTorch</p>
+    <p><a href="https://github.com/rezar362/Portfolio/tree/main/earnings_mood">GitHub</a></p>
   </div>
 
   <div class="project">
     <h3>Uplift Modeling</h3>
-    <p>Targeted marketing and treatment effect estimation using causal ML techniques.</p>
+    <p>Causal ML for treatment effect estimation and targeted strategies.</p>
     <p><a href="https://github.com/rezar362/Portfolio/tree/main/UpliftModeling">GitHub</a></p>
   </div>
 
+  <!-- Add any other projects you want here in the same format (soccer_iq, soccer_strategy, etc.) -->
+
+  <h2>Skills</h2>
+  <ul>
+    <li><strong>ML &amp; AI:</strong> PyTorch, PyTorch Geometric, HuggingFace, LangChain, RAG, YOLOv8, GAT</li>
+    <li><strong>Quant Finance:</strong> Portfolio optimization, Earnings forecasting, Factor models, Backtesting</li>
+    <li><strong>Engineering:</strong> Python, FastAPI, AWS, Docker, GitHub Actions, ChromaDB</li>
+  </ul>
+
   <h2>Contact</h2>
-  <p>Open to conversations on AI-driven quantitative strategies and investment intelligence.</p>
+  <p>Open to conversations on AI-driven quantitative strategies.</p>
   <p>
     <a href="https://github.com/rezar362">GitHub</a> • 
     LinkedIn • 
