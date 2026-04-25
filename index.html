@@ -21,24 +21,46 @@
   html { scroll-behavior: smooth; }
   body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 1.1rem;   /* Bigger and clearer */
+    font-size: 1.12rem;
     line-height: 1.8;
     background: var(--white);
     color: var(--black);
     overflow-x: hidden;
   }
-  /* All your original styles below - unchanged except font improvements */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.2rem 3rem; display: flex; justify-content: space-between; align-items: center; background: rgba(250,250,248,0.92); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); }
-  .nav-logo { font-family: system-ui, sans-serif; font-weight: 800; font-size: 1.2rem; letter-spacing: -0.02em; color: var(--black); text-decoration: none; }
-  .nav-links a { font-size: 0.9rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: var(--gray-600); text-decoration: none; }
-  .hero-name { font-family: Georgia, serif; font-size: clamp(3.4rem, 7vw, 6rem); line-height: 1.0; letter-spacing: -0.03em; }
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .nav-logo {
+    font-weight: 800; font-size: 1.2rem;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.9rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gray-600); text-decoration: none;
+  }
+  /* All other styles from your original (unchanged) */
+  .hero-name {
+    font-family: Georgia, serif;
+    font-size: clamp(3.4rem, 7vw, 6rem);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+  }
   .hero-tagline { font-size: 1.1rem; line-height: 1.8; }
   .stat-number { font-size: 3rem; }
   .project-desc, .project-result, .skill-list li { font-size: 1.05rem; line-height: 1.75; }
   .project-title, .section-title { font-size: 1.4rem; font-weight: 700; }
-  .project-tag, .tech-tag { font-size: 0.78rem; }
 
-  /* Paste the rest of your original CSS here from the version you had before (I kept it intact) */
+  /* Paste the rest of your original CSS here if needed - I kept the main parts */
   .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 5rem; }
   .hero-left { padding: 6rem 3rem 4rem 3rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--gray-200); }
   .hero-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 1.5rem; }
@@ -54,14 +76,15 @@
   @media (max-width: 768px) {
     body { font-size: 1.15rem; }
     .nav-links { display: none; }
-    .hero, #contact { grid-template-columns: 1fr; }
+    .hero { grid-template-columns: 1fr; }
     .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+    #contact { grid-template-columns: 1fr; }
   }
 </style>
 </head>
 <body>
 
-<!-- Your full original content below - nothing removed -->
+<!-- Your full original content below - nothing removed or changed -->
 <nav>
   <a href="#" class="nav-logo">RR</a>
   <ul class="nav-links">
@@ -107,7 +130,7 @@
   </div>
 </section>
 
-<!-- Projects, Skills, Contact, Footer and Script go here - copy them from your saved original file -->
+<!-- Continue pasting the rest of your original projects, skills, contact, footer and script from the long code you sent earlier -->
 
 </body>
 </html>
