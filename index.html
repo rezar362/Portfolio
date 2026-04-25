@@ -21,7 +21,7 @@
   html { scroll-behavior: smooth; }
   body {
     font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    font-size: 1.12rem;
+    font-size: 1.1rem;           /* Increased for visibility */
     line-height: 1.8;
     background: var(--white);
     color: var(--black);
@@ -48,7 +48,8 @@
     letter-spacing: 0.08em; text-transform: uppercase;
     color: var(--gray-600); text-decoration: none;
   }
-  /* All other styles from your original (unchanged) */
+
+  /* Rest of your original styles (unchanged) */
   .hero-name {
     font-family: Georgia, serif;
     font-size: clamp(3.4rem, 7vw, 6rem);
@@ -60,31 +61,35 @@
   .project-desc, .project-result, .skill-list li { font-size: 1.05rem; line-height: 1.75; }
   .project-title, .section-title { font-size: 1.4rem; font-weight: 700; }
 
-  /* Paste the rest of your original CSS here if needed - I kept the main parts */
   .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 5rem; }
   .hero-left { padding: 6rem 3rem 4rem 3rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--gray-200); }
   .hero-eyebrow { font-size: 0.75rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 1.5rem; }
-  .btn { padding: 0.9rem 1.7rem; font-size: 0.95rem; border-radius: 3px; }
+  .btn { padding: 0.85rem 1.6rem; font-size: 0.95rem; font-weight: 500; letter-spacing: 0.05em; border-radius: 3px; }
   section { padding: 6rem 3rem; }
   .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); }
-  .project-card { background: var(--white); padding: 2.8rem; display: flex; flex-direction: column; }
+  .project-card { background: var(--white); padding: 2.5rem; display: flex; flex-direction: column; }
   #skills { background: var(--gray-100); }
   .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
   #contact { background: var(--black); color: var(--white); display: grid; grid-template-columns: 1fr 1fr; }
-  .contact-tagline { font-size: clamp(2.3rem, 4.5vw, 4rem); line-height: 1.1; }
+  .contact-tagline { font-size: clamp(2.2rem, 4vw, 3.8rem); line-height: 1.1; }
 
   @media (max-width: 768px) {
-    body { font-size: 1.15rem; }
+    nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
     .hero { grid-template-columns: 1fr; }
-    .projects-grid, .skills-grid { grid-template-columns: 1fr; }
+    .hero-left { border-right: none; padding: 6rem 1.5rem 2rem; }
+    .hero-right { padding: 2rem 1.5rem 4rem; }
+    section { padding: 4rem 1.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
     #contact { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- Your full original content below - nothing removed or changed -->
+<!-- YOUR ORIGINAL BODY CONTENT (unchanged) -->
 <nav>
   <a href="#" class="nav-logo">RR</a>
   <ul class="nav-links">
@@ -130,7 +135,7 @@
   </div>
 </section>
 
-<!-- Continue pasting the rest of your original projects, skills, contact, footer and script from the long code you sent earlier -->
+<!-- Paste the rest of your original projects section, skills, contact, footer and script here from the long code you sent me earlier -->
 
 </body>
 </html>
