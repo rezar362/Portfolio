@@ -1,150 +1,563 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reza Roshani — AI + Quant</title>
-  <style>
-    body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      line-height: 1.7;
-      color: #1a1a1a;
-      background: #ffffff;
-      max-width: 780px;
-      margin: 60px auto;
-      padding: 0 24px;
-    }
-    h1, h2, h3 {
-      font-weight: 500;
-    }
-    h1 {
-      font-size: 2.3rem;
-      margin-bottom: 8px;
-    }
-    p, li {
-      margin: 10px 0;
-    }
-    strong {
-      color: #000;
-    }
-    .metric {
-      font-size: 2.4rem;
-      font-weight: 500;
-      margin: 24px 0 6px 0;
-    }
-    .section {
-      margin: 48px 0;
-    }
-    .project {
-      margin: 36px 0;
-      padding-bottom: 24px;
-      border-bottom: 1px solid #eee;
-    }
-    .project:last-child {
-      border-bottom: none;
-    }
-    .tech {
-      font-size: 0.95rem;
-      color: #555;
-      margin: 8px 0;
-    }
-    a {
-      color: #0066cc;
-      text-decoration: none;
-    }
-    a:hover {
-      text-decoration: underline;
-    }
-    .footer {
-      margin-top: 60px;
-      padding-top: 20px;
-      border-top: 1px solid #eee;
-      font-size: 0.95rem;
-      color: #555;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reza Roshani — ML, Quant Finance & Optimization</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --black: #0a0a0a;
+    --white: #fafaf8;
+    --accent: #c8f557;
+    --accent-dark: #9bc43a;
+    --gray-100: #f4f4f0;
+    --gray-200: #e8e8e2;
+    --gray-400: #a8a89e;
+    --gray-600: #6b6b63;
+    --gray-800: #2e2e2a;
+    --tag-bg: #f0f0ea;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Mono', monospace;
+    background: var(--white);
+    color: var(--black);
+    overflow-x: hidden;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    padding: 1.2rem 3rem;
+    display: flex; justify-content: space-between; align-items: center;
+    background: rgba(250,250,248,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .nav-logo {
+    font-family: 'Syne', sans-serif;
+    font-weight: 800; font-size: 1rem;
+    letter-spacing: -0.02em;
+    color: var(--black);
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    color: var(--gray-600); text-decoration: none;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--black); }
+
+  /* ── HERO ── */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding-top: 5rem;
+  }
+  .hero-left {
+    padding: 6rem 3rem 4rem 3rem;
+    display: flex; flex-direction: column; justify-content: center;
+    border-right: 1px solid var(--gray-200);
+  }
+  .hero-eyebrow {
+    font-size: 0.7rem; font-weight: 500;
+    letter-spacing: 0.15em; text-transform: uppercase;
+    color: var(--gray-400); margin-bottom: 1.5rem;
+  }
+  .hero-name {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(3rem, 5vw, 5.5rem);
+    line-height: 1.0;
+    letter-spacing: -0.03em;
+    color: var(--black);
+    margin-bottom: 1rem;
+  }
+  .hero-name em {
+    font-style: italic;
+    color: var(--gray-600);
+  }
+  .hero-tagline {
+    font-size: 0.85rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+    max-width: 380px;
+    margin-bottom: 3rem;
+  }
+  .hero-tagline strong {
+    color: var(--black);
+    font-weight: 500;
+  }
+  .hero-cta {
+    display: flex; gap: 1rem; flex-wrap: wrap;
+  }
+  .btn {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.75rem 1.5rem;
+    font-family: 'DM Mono', monospace;
+    font-size: 0.75rem; font-weight: 500;
+    letter-spacing: 0.05em;
+    text-decoration: none;
+    border-radius: 2px;
+    transition: all 0.2s;
+    cursor: pointer; border: none;
+  }
+  .btn-primary {
+    background: var(--black); color: var(--accent);
+  }
+  .btn-primary:hover { background: var(--gray-800); }
+  .btn-secondary {
+    background: transparent; color: var(--black);
+    border: 1px solid var(--gray-200);
+  }
+  .btn-secondary:hover { border-color: var(--black); }
+
+  .hero-right {
+    padding: 6rem 3rem 4rem 3rem;
+    display: flex; flex-direction: column; justify-content: center;
+  }
+  .stats-grid {
+    display: grid; grid-template-columns: 1fr 1fr;
+    gap: 0; border: 1px solid var(--gray-200);
+  }
+  .stat-box {
+    padding: 2rem;
+    border-right: 1px solid var(--gray-200);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .stat-box:nth-child(2n) { border-right: none; }
+  .stat-box:nth-child(n+3) { border-bottom: none; }
+  .stat-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 2.8rem;
+    line-height: 1;
+    color: var(--black);
+    margin-bottom: 0.4rem;
+  }
+  .stat-number span { color: var(--accent-dark); }
+  .stat-label {
+    font-size: 0.7rem; font-weight: 400;
+    color: var(--gray-400);
+    letter-spacing: 0.08em; text-transform: uppercase;
+    line-height: 1.5;
+  }
+
+  /* ── SECTION ── */
+  section { padding: 6rem 3rem; }
+  .section-header {
+    display: flex; align-items: baseline; gap: 1.5rem;
+    margin-bottom: 4rem;
+    padding-bottom: 1.5rem;
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .section-num {
+    font-size: 0.7rem; color: var(--gray-400);
+    letter-spacing: 0.1em;
+  }
+  .section-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.8rem; font-weight: 700;
+    letter-spacing: -0.02em;
+  }
+
+  /* ── PROJECTS ── */
+  #projects { background: var(--white); }
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1px;
+    background: var(--gray-200);
+    border: 1px solid var(--gray-200);
+  }
+  .project-card {
+    background: var(--white);
+    padding: 2.5rem;
+    display: flex; flex-direction: column;
+    transition: background 0.2s;
+    text-decoration: none; color: inherit;
+    position: relative; overflow: hidden;
+  }
+  .project-card::after {
+    content: '';
+    position: absolute; bottom: 0; left: 0;
+    width: 0; height: 2px;
+    background: var(--accent);
+    transition: width 0.3s ease;
+  }
+  .project-card:hover { background: var(--gray-100); }
+  .project-card:hover::after { width: 100%; }
+
+  .project-tag {
+    display: inline-block;
+    font-size: 0.65rem; font-weight: 500;
+    letter-spacing: 0.1em; text-transform: uppercase;
+    color: var(--gray-600);
+    background: var(--tag-bg);
+    padding: 0.3rem 0.7rem;
+    border-radius: 2px;
+    margin-bottom: 1.5rem;
+    align-self: flex-start;
+  }
+  .project-title {
+    font-family: 'Syne', sans-serif;
+    font-size: 1.2rem; font-weight: 700;
+    letter-spacing: -0.02em;
+    margin-bottom: 0.8rem;
+    line-height: 1.2;
+  }
+  .project-desc {
+    font-size: 0.78rem;
+    color: var(--gray-600);
+    line-height: 1.8;
+    flex: 1;
+    margin-bottom: 1.5rem;
+  }
+  .project-meta {
+    display: flex; flex-wrap: wrap; gap: 0.4rem;
+    margin-bottom: 1.5rem;
+  }
+  .tech-tag {
+    font-size: 0.65rem;
+    color: var(--gray-600);
+    background: var(--tag-bg);
+    padding: 0.25rem 0.6rem;
+    border-radius: 2px;
+  }
+  .project-result {
+    font-size: 0.75rem; font-weight: 500;
+    color: var(--black);
+    padding-top: 1rem;
+    border-top: 1px solid var(--gray-200);
+  }
+  .project-result strong { color: var(--accent-dark); }
+
+  .project-link {
+    display: inline-flex; align-items: center; gap: 0.4rem;
+    font-size: 0.7rem; font-weight: 500;
+    color: var(--gray-600);
+    text-decoration: none;
+    letter-spacing: 0.05em;
+    margin-top: 1rem;
+    transition: color 0.2s;
+  }
+  .project-link:hover { color: var(--black); }
+  .project-link::after { content: '→'; }
+
+  /* ── SKILLS ── */
+  #skills { background: var(--gray-100); }
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+  }
+  .skill-group h3 {
+    font-family: 'Syne', sans-serif;
+    font-size: 0.85rem; font-weight: 700;
+    letter-spacing: 0.05em; text-transform: uppercase;
+    margin-bottom: 1rem;
+    padding-bottom: 0.75rem;
+    border-bottom: 2px solid var(--accent);
+    display: inline-block;
+  }
+  .skill-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.5rem;
+  }
+  .skill-list li {
+    font-size: 0.78rem;
+    color: var(--gray-600);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .skill-list li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--accent-dark);
+  }
+
+  /* ── CONTACT ── */
+  #contact {
+    background: var(--black);
+    color: var(--white);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .contact-left {
+    padding: 6rem 3rem;
+    border-right: 1px solid var(--gray-800);
+  }
+  .contact-left .section-title { color: var(--white); }
+  .contact-left .section-num { color: var(--gray-600); }
+  .contact-tagline {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(2rem, 3vw, 3.5rem);
+    line-height: 1.1;
+    color: var(--white);
+    margin-top: 2rem;
+  }
+  .contact-tagline em { color: var(--accent); font-style: italic; }
+  .contact-right {
+    padding: 6rem 3rem;
+    display: flex; flex-direction: column;
+    justify-content: center; gap: 1.5rem;
+  }
+  .contact-link {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 1.2rem 1.5rem;
+    border: 1px solid var(--gray-800);
+    text-decoration: none;
+    color: var(--white);
+    font-size: 0.8rem;
+    letter-spacing: 0.05em;
+    transition: all 0.2s;
+    border-radius: 2px;
+  }
+  .contact-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+  .contact-link span { color: var(--gray-600); font-size: 0.7rem; }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--black);
+    color: var(--gray-600);
+    padding: 1.5rem 3rem;
+    font-size: 0.7rem;
+    display: flex; justify-content: space-between; align-items: center;
+    border-top: 1px solid var(--gray-800);
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0; transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  @media (max-width: 768px) {
+    nav { padding: 1rem 1.5rem; }
+    .nav-links { display: none; }
+    .hero { grid-template-columns: 1fr; }
+    .hero-left { border-right: none; padding: 6rem 1.5rem 2rem; }
+    .hero-right { padding: 2rem 1.5rem 4rem; }
+    section { padding: 4rem 1.5rem; }
+    .projects-grid { grid-template-columns: 1fr; }
+    .skills-grid { grid-template-columns: 1fr; }
+    #contact { grid-template-columns: 1fr; }
+    .contact-left { border-right: none; padding: 4rem 1.5rem 2rem; }
+    .contact-right { padding: 2rem 1.5rem 4rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+  }
+</style>
 </head>
 <body>
 
-  <h1>Reza Roshani</h1>
-  <p><strong>AI Engineer &amp; Quantitative Investment Advisor @ ScionAI</strong></p>
-  <p>Ph.D. in Computer Science. Building production-grade predictive and generative AI systems for investment intelligence.</p>
-
-  <div class="metric">250%</div>
-  <p>Cumulative live portfolio return over 2.5 years</p>
-
-  <div class="metric">95%</div>
-  <p>Test accuracy — Financial Sentiment model</p>
-
-  <div class="metric">8×</div>
-  <p>Reduction in ad cost-per-acquisition</p>
-
-  <h2>Projects</h2>
-
-  <div class="project">
-    <h3>Dental Radiograph Analysis</h3>
-    <p>End-to-end pipeline with YOLOv8m + SAM2 for detecting caries, impacted teeth, and periapical lesions in X-rays.</p>
-    <p class="tech">YOLOv8 · SAM2 · Roboflow · PyTorch</p>
-    <p>mAP50 <strong>0.903</strong> on impacted tooth detection</p>
-    <p><a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/dental-xray/notebook.ipynb">Open in Colab</a> • 
-       <a href="https://github.com/rezar362/Portfolio/tree/main/Dental-xray">GitHub</a></p>
-  </div>
-
-  <div class="project">
-    <h3>Stock Correlation Network — GAT</h3>
-    <p>Graph Attention Network on S&amp;P 500 correlation graph for 30-day outperformance prediction.</p>
-    <p class="tech">PyTorch Geometric · GAT · NetworkX · Plotly</p>
-    <p><a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/stock-gnn/notebook.ipynb">Open in Colab</a> • 
-       <a href="https://github.com/rezar362/Portfolio/tree/main/stock-gnn">GitHub</a></p>
-  </div>
-
-  <div class="project">
-    <h3>Financial Sentiment — DistilBERT</h3>
-    <p>Fine-tuned transformer for 3-class sentiment on financial news (Financial PhraseBank).</p>
-    <p class="tech">DistilBERT · HuggingFace · PyTorch</p>
-    <p>Val accuracy <strong>97.4%</strong> · Test accuracy <strong>95.6%</strong></p>
-    <p><a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/Financial-sentiment/FInancial_sentiment.ipynb">Open in Colab</a> • 
-       <a href="https://github.com/rezar362/Portfolio/tree/main/Financial-sentiment">GitHub</a></p>
-  </div>
-
-  <div class="project">
-    <h3>10-K RAG — Nasdaq 100</h3>
-    <p>Retrieval-Augmented Generation over SEC 10-K filings. Natural language questions on risks, strategy, and competition.</p>
-    <p class="tech">Mistral · LangChain · ChromaDB</p>
-    <p><a href="https://github.com/rezar362/Portfolio/tree/main/10k-rag">GitHub</a></p>
-  </div>
-
-  <div class="project">
-    <h3>EarningsMood — CEO Voice Analysis</h3>
-    <p>Acoustic features from earnings calls correlated with next-day stock returns.</p>
-    <p class="tech">librosa · PyTorch</p>
-    <p><a href="https://github.com/rezar362/Portfolio/tree/main/earnings_mood">GitHub</a></p>
-  </div>
-
-  <div class="project">
-    <h3>Uplift Modeling</h3>
-    <p>Causal ML for treatment effect estimation and targeted strategies.</p>
-    <p><a href="https://github.com/rezar362/Portfolio/tree/main/UpliftModeling">GitHub</a></p>
-  </div>
-
-  <h2>Skills</h2>
-  <ul>
-    <li><strong>ML &amp; AI:</strong> PyTorch, PyTorch Geometric, HuggingFace, LangChain, RAG, YOLOv8, GAT</li>
-    <li><strong>Quant Finance:</strong> Portfolio optimization, Earnings forecasting, Factor models, Backtesting</li>
-    <li><strong>Engineering:</strong> Python, FastAPI, AWS, Docker, GitHub Actions, ChromaDB</li>
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">RR</a>
+  <ul class="nav-links">
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#contact">Contact</a></li>
   </ul>
+</nav>
 
-  <h2>Contact</h2>
-  <p>Open to conversations on AI-driven quantitative strategies.</p>
-  <p>
-    <a href="https://github.com/rezar362">GitHub</a> • 
-    LinkedIn • 
-    X: @RoshaniReza
-  </p>
-
-  <div class="footer">
-    © Reza Roshani 2026
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <p class="hero-eyebrow">Portfolio — 2025</p>
+    <h1 class="hero-name">Reza<br><em>Roshani</em></h1>
+    <p class="hero-tagline">
+      <strong>ML Engineer</strong> specializing in quantitative finance and optimization.<br>
+      Ph.D. in Computer Science. Building production-grade predictive and generative AI systems at the intersection of <strong>machine learning</strong>, <strong>quant finance</strong>, and <strong>mathematical optimization</strong>.
+    </p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">View Projects</a>
+      <a href="https://www.linkedin.com/in/reza-roshani-tabrizi-2256061/" target="_blank" class="btn btn-secondary">LinkedIn</a>
+      <a href="https://github.com/rezar362" target="_blank" class="btn btn-secondary">GitHub</a>
+    </div>
   </div>
+  <div class="hero-right">
+    <div class="stats-grid">
+      <div class="stat-box fade-in">
+        <div class="stat-number"><span>&gt;</span>250%</div>
+        <div class="stat-label">Cumulative portfolio return over 2.5 years</div>
+      </div>
+      <div class="stat-box fade-in">
+        <div class="stat-number">8<span>×</span></div>
+        <div class="stat-label">Reduction in ad cost-per-acquisition</div>
+      </div>
+      <div class="stat-box fade-in">
+        <div class="stat-number">95<span>%</span></div>
+        <div class="stat-label">Test accuracy — financial sentiment model</div>
+      </div>
+      <div class="stat-box fade-in">
+        <div class="stat-number">1<span>M+</span></div>
+        <div class="stat-label">Records processed in production pipelines</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+  <div class="section-header">
+    <span class="section-num">01</span>
+    <h2 class="section-title">Projects</h2>
+  </div>
+  <div class="projects-grid">
+
+    <div class="project-card fade-in">
+      <span class="project-tag">Computer Vision · Medical AI</span>
+      <h3 class="project-title">Dental Radiograph Analysis</h3>
+      <p class="project-desc">End-to-end pipeline combining YOLOv8m object detection and SAM2 pixel-level segmentation to identify 4 dental pathologies in X-ray images — caries, deep caries, impacted teeth, and periapical lesions.</p>
+      <div class="project-meta">
+        <span class="tech-tag">YOLOv8</span>
+        <span class="tech-tag">SAM2</span>
+        <span class="tech-tag">Roboflow</span>
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">Google Colab</span>
+      </div>
+      <p class="project-result">mAP50 <strong>0.903</strong> on impacted tooth detection · 800 annotated X-rays</p>
+      <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/dental-xray/notebook.ipynb" target="_blank" class="project-link">Open in Colab </a>
+    </div>
+
+    <div class="project-card fade-in">
+      <span class="project-tag">Graph ML · Quant Finance</span>
+      <h3 class="project-title">Stock Correlation Network — GAT</h3>
+      <p class="project-desc">Models the S&P 500 as a correlation graph and predicts 30-day stock outperformance using a 3-layer Graph Attention Network with 4 attention heads. Community detection reveals sector-like clusters.</p>
+      <div class="project-meta">
+        <span class="tech-tag">PyTorch Geometric</span>
+        <span class="tech-tag">GAT</span>
+        <span class="tech-tag">NetworkX</span>
+        <span class="tech-tag">Plotly</span>
+        <span class="tech-tag">yfinance</span>
+      </div>
+      <p class="project-result"><strong>273</strong> edges · <strong>99</strong> stocks · Interactive network visualization</p>
+      <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/stock-gnn/notebook.ipynb" target="_blank" class="project-link">Open in Colab </a>
+    </div>
+
+    <div class="project-card fade-in">
+      <span class="project-tag">NLP · Fine-Tuning</span>
+      <h3 class="project-title">Financial Sentiment — DistilBERT</h3>
+      <p class="project-desc">Fine-tuned DistilBERT on Financial PhraseBank — 2,264 Reuters sentences annotated by 16 financial analysts — for 3-class sentiment classification. Upgrades rule-based VADER to a transformer-based approach.</p>
+      <div class="project-meta">
+        <span class="tech-tag">DistilBERT</span>
+        <span class="tech-tag">HuggingFace</span>
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">Financial PhraseBank</span>
+      </div>
+      <p class="project-result">Val accuracy <strong>97.4%</strong> · Test accuracy <strong>95.6%</strong></p>
+      <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/Financial-sentiment/FInancial_sentiment.ipynb" target="_blank" class="project-link">Open in Colab </a>
+    </div>
+
+    <div class="project-card fade-in">
+      <span class="project-tag">LLM · RAG · NLP</span>
+      <h3 class="project-title">10-K RAG — Nasdaq 100</h3>
+      <p class="project-desc">Retrieval-Augmented Generation system over SEC 10-K filings for the top 20 Nasdaq 100 companies. Ask natural language questions and compare risk factors, revenue trends, and strategy across companies.</p>
+      <div class="project-meta">
+        <span class="tech-tag">Mistral</span>
+        <span class="tech-tag">LangChain</span>
+        <span class="tech-tag">ChromaDB</span>
+        <span class="tech-tag">SEC EDGAR</span>
+        <span class="tech-tag">sentence-transformers</span>
+      </div>
+      <p class="project-result">Coming soon</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills">
+  <div class="section-header">
+    <span class="section-num">02</span>
+    <h2 class="section-title">Skills</h2>
+  </div>
+  <div class="skills-grid">
+    <div class="skill-group fade-in">
+      <h3>ML & AI</h3>
+      <ul class="skill-list">
+        <li>PyTorch, PyTorch Geometric</li>
+        <li>HuggingFace Transformers</li>
+        <li>XGBoost, LSTM, GAT</li>
+        <li>LangChain, RAG systems</li>
+        <li>YOLOv8, SAM2</li>
+        <li>MLflow, Evidently AI</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Quant Finance</h3>
+      <ul class="skill-list">
+        <li>Portfolio optimization</li>
+        <li>Tail risk hedging</li>
+        <li>Backtesting frameworks</li>
+        <li>Earnings forecasting</li>
+        <li>Factor models</li>
+        <li>Crypto trading systems</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Engineering</h3>
+      <ul class="skill-list">
+        <li>Python, PySpark, SQL</li>
+        <li>AWS (S3, Lambda)</li>
+        <li>Databricks, Redshift</li>
+        <li>FastAPI, Gradio</li>
+        <li>GitHub Actions, Docker</li>
+        <li>ChromaDB, Plotly</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="contact-left">
+    <div class="section-header" style="border-color:#2e2e2a">
+      <span class="section-num">03</span>
+      <h2 class="section-title">Contact</h2>
+    </div>
+    <p class="contact-tagline">Let's build something <em>remarkable</em> together.</p>
+  </div>
+  <div class="contact-right">
+    <a href="https://www.linkedin.com/in/reza-roshani-tabrizi-2256061/" target="_blank" class="contact-link">
+      LinkedIn <span>reza-roshani-tabrizi →</span>
+    </a>
+    <a href="https://github.com/rezar362" target="_blank" class="contact-link">
+      GitHub <span>rezar362 →</span>
+    </a>
+    <a href="https://github.com/rezar362/Portfolio" target="_blank" class="contact-link">
+      Portfolio Repo <span>rezar362/Portfolio →</span>
+    </a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span>© 2025 Reza Roshani</span>
+  <span>ML · Quant Finance · Optimization</span>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry, i) => {
+      if (entry.isIntersecting) {
+        setTimeout(() => entry.target.classList.add('visible'), i * 100);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
