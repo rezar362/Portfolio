@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,362 +8,124 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   :root {
-    --black: #0a0a0a;
-    --white: #fafaf8;
-    --accent: #c8f557;
-    --accent-dark: #9bc43a;
-    --gray-100: #f4f4f0;
-    --gray-200: #e8e8e2;
-    --gray-400: #a8a89e;
-    --gray-600: #6b6b63;
-    --gray-800: #2e2e2a;
-    --tag-bg: #f0f0ea;
+    --black: #0a0a0a; --white: #fafaf8; --accent: #c8f557; --accent-dark: #9bc43a;
+    --gray-100: #f4f4f0; --gray-200: #e8e8e2; --gray-400: #6b6b63;
+    --gray-600: #2e2e2a; --gray-800: #1a1a18; --tag-bg: #f0f0ea;
   }
-
   html { scroll-behavior: smooth; }
+  body { font-family: 'DM Mono', monospace; font-size: 18px; line-height: 1.85; background: var(--white); color: var(--black); overflow-x: hidden; }
 
-  body {
-    font-family: 'DM Mono', monospace;
-    font-size: 15px;
-    line-height: 1.6;
-    background: var(--white);
-    color: var(--black);
-    overflow-x: hidden;
-  }
-
-  /* ── NAV ── */
-  nav {
-    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-    padding: 1.2rem 3rem;
-    display: flex; justify-content: space-between; align-items: center;
-    background: rgba(250,250,248,0.92);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--gray-200);
-  }
-  .nav-logo {
-    font-family: 'Syne', sans-serif;
-    font-weight: 800; font-size: 1rem;
-    letter-spacing: -0.02em;
-    color: var(--black);
-    text-decoration: none;
-  }
-  .nav-links { display: flex; gap: 2rem; list-style: none; }
-  .nav-links a {
-    font-size: 0.75rem; font-weight: 500;
-    letter-spacing: 0.08em; text-transform: uppercase;
-    color: var(--gray-600); text-decoration: none;
-    transition: color 0.2s;
-  }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1rem 2rem; display: flex; justify-content: space-between; align-items: center; background: rgba(250,250,248,0.95); backdrop-filter: blur(12px); border-bottom: 1px solid var(--gray-200); }
+  .nav-logo { font-family: 'Syne', sans-serif; font-weight: 800; font-size: 1.1rem; letter-spacing: -0.02em; color: var(--black); text-decoration: none; }
+  .nav-links { display: flex; gap: 1.5rem; list-style: none; }
+  .nav-links a { font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #1a1a18; text-decoration: none; transition: color 0.2s; }
   .nav-links a:hover { color: var(--black); }
 
-  /* ── HERO ── */
-  .hero {
-    min-height: 100vh;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding-top: 5rem;
-  }
-  .hero-left {
-    padding: 6rem 3rem 4rem 3rem;
-    display: flex; flex-direction: column; justify-content: center;
-    border-right: 1px solid var(--gray-200);
-  }
-  .hero-eyebrow {
-    font-size: 0.7rem; font-weight: 500;
-    letter-spacing: 0.15em; text-transform: uppercase;
-    color: var(--gray-400); margin-bottom: 1.5rem;
-  }
-  .hero-name {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(3rem, 5vw, 5.5rem);
-    line-height: 1.0;
-    letter-spacing: -0.03em;
-    color: var(--black);
-    margin-bottom: 1rem;
-  }
-  .hero-name em {
-    font-style: italic;
-    color: var(--gray-600);
-  }
-  .hero-tagline {
-    font-size: 0.85rem;
-    color: var(--gray-600);
-    line-height: 1.8;
-    max-width: 380px;
-    margin-bottom: 3rem;
-  }
-  .hero-tagline strong {
-    color: var(--black);
-    font-weight: 500;
-  }
-  .hero-cta {
-    display: flex; gap: 1rem; flex-wrap: wrap;
-  }
-  .btn {
-    display: inline-flex; align-items: center; gap: 0.5rem;
-    padding: 0.75rem 1.5rem;
-    font-family: 'DM Mono', monospace;
-    font-size: 0.75rem; font-weight: 500;
-    letter-spacing: 0.05em;
-    text-decoration: none;
-    border-radius: 2px;
-    transition: all 0.2s;
-    cursor: pointer; border: none;
-  }
-  .btn-primary {
-    background: var(--black); color: var(--accent);
-  }
+  .hero { min-height: 100vh; display: grid; grid-template-columns: 1fr 1fr; padding-top: 4rem; }
+  .hero-left { padding: 5rem 2.5rem 4rem; display: flex; flex-direction: column; justify-content: center; border-right: 1px solid var(--gray-200); }
+  .hero-eyebrow { font-size: 0.82rem; font-weight: 500; letter-spacing: 0.15em; text-transform: uppercase; color: var(--gray-400); margin-bottom: 1.5rem; }
+  .hero-name { font-family: 'DM Serif Display', serif; font-size: clamp(2.8rem, 4vw, 5rem); line-height: 1.0; letter-spacing: -0.03em; color: var(--black); margin-bottom: 1.2rem; }
+  .hero-name em { font-style: italic; color: var(--gray-600); }
+  .hero-tagline { font-size: 1.1rem; color: #1a1a18; line-height: 2.0; max-width: 420px; margin-bottom: 2.5rem; }
+  .hero-tagline strong { color: var(--black); font-weight: 500; }
+  .hero-cta { display: flex; gap: 0.8rem; flex-wrap: wrap; }
+  .btn { display: inline-flex; align-items: center; gap: 0.5rem; padding: 0.8rem 1.4rem; font-family: 'DM Mono', monospace; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.05em; text-decoration: none; border-radius: 2px; transition: all 0.2s; cursor: pointer; border: none; }
+  .btn-primary { background: var(--black); color: var(--accent); }
   .btn-primary:hover { background: var(--gray-800); }
-  .btn-secondary {
-    background: transparent; color: var(--black);
-    border: 1px solid var(--gray-200);
-  }
+  .btn-secondary { background: transparent; color: var(--black); border: 1px solid var(--gray-200); }
   .btn-secondary:hover { border-color: var(--black); }
 
-  .hero-right {
-    padding: 6rem 3rem 4rem 3rem;
-    display: flex; flex-direction: column; justify-content: center;
-  }
-  .stats-grid {
-    display: grid; grid-template-columns: 1fr 1fr;
-    gap: 0; border: 1px solid var(--gray-200);
-  }
-  .stat-box {
-    padding: 2rem;
-    border-right: 1px solid var(--gray-200);
-    border-bottom: 1px solid var(--gray-200);
-  }
+  .hero-right { padding: 5rem 2.5rem 4rem; display: flex; flex-direction: column; justify-content: center; }
+  .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--gray-200); }
+  .stat-box { padding: 1.8rem; border-right: 1px solid var(--gray-200); border-bottom: 1px solid var(--gray-200); }
   .stat-box:nth-child(2n) { border-right: none; }
   .stat-box:nth-child(n+3) { border-bottom: none; }
-  .stat-number {
-    font-family: 'DM Serif Display', serif;
-    font-size: 2.8rem;
-    line-height: 1;
-    color: var(--black);
-    margin-bottom: 0.4rem;
-  }
+  .stat-number { font-family: 'DM Serif Display', serif; font-size: 2.4rem; line-height: 1; color: var(--black); margin-bottom: 0.5rem; }
   .stat-number span { color: var(--accent-dark); }
-  .stat-label {
-    font-size: 0.7rem; font-weight: 400;
-    color: var(--gray-400);
-    letter-spacing: 0.08em; text-transform: uppercase;
-    line-height: 1.5;
-  }
+  .stat-label { font-size: 0.82rem; font-weight: 400; color: #2e2e2a; letter-spacing: 0.05em; text-transform: uppercase; line-height: 1.5; }
 
-  /* ── SECTION ── */
-  section { padding: 6rem 3rem; }
-  .section-header {
-    display: flex; align-items: baseline; gap: 1.5rem;
-    margin-bottom: 4rem;
-    padding-bottom: 1.5rem;
-    border-bottom: 1px solid var(--gray-200);
-  }
-  .section-num {
-    font-size: 0.7rem; color: var(--gray-400);
-    letter-spacing: 0.1em;
-  }
-  .section-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.8rem; font-weight: 700;
-    letter-spacing: -0.02em;
-  }
+  section { padding: 5rem 2.5rem; }
+  .section-header { display: flex; align-items: baseline; gap: 1.5rem; margin-bottom: 3rem; padding-bottom: 1.2rem; border-bottom: 1px solid var(--gray-200); }
+  .section-num { font-size: 0.85rem; color: var(--gray-400); letter-spacing: 0.1em; }
+  .section-title { font-family: 'Syne', sans-serif; font-size: 1.9rem; font-weight: 700; letter-spacing: -0.02em; }
 
-  /* ── PROJECTS ── */
   #projects { background: var(--white); }
-  .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1px;
-    background: var(--gray-200);
-    border: 1px solid var(--gray-200);
-  }
-  .project-card {
-    background: var(--white);
-    padding: 2.5rem;
-    display: flex; flex-direction: column;
-    transition: background 0.2s;
-    text-decoration: none; color: inherit;
-    position: relative; overflow: hidden;
-  }
-  .project-card::after {
-    content: '';
-    position: absolute; bottom: 0; left: 0;
-    width: 0; height: 2px;
-    background: var(--accent);
-    transition: width 0.3s ease;
-  }
+  .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--gray-200); border: 1px solid var(--gray-200); }
+  .project-card { background: var(--white); padding: 2.2rem; display: flex; flex-direction: column; transition: background 0.2s; text-decoration: none; color: inherit; position: relative; overflow: hidden; }
+  .project-card::after { content: ''; position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent); transition: width 0.3s ease; }
   .project-card:hover { background: var(--gray-100); }
   .project-card:hover::after { width: 100%; }
-
-  .project-tag {
-    display: inline-block;
-    font-size: 0.65rem; font-weight: 500;
-    letter-spacing: 0.1em; text-transform: uppercase;
-    color: var(--gray-600);
-    background: var(--tag-bg);
-    padding: 0.3rem 0.7rem;
-    border-radius: 2px;
-    margin-bottom: 1.5rem;
-    align-self: flex-start;
-  }
-  .project-title {
-    font-family: 'Syne', sans-serif;
-    font-size: 1.2rem; font-weight: 700;
-    letter-spacing: -0.02em;
-    margin-bottom: 0.8rem;
-    line-height: 1.2;
-  }
-  .project-desc {
-    font-size: 0.78rem;
-    color: var(--gray-600);
-    line-height: 1.8;
-    flex: 1;
-    margin-bottom: 1.5rem;
-  }
-  .project-meta {
-    display: flex; flex-wrap: wrap; gap: 0.4rem;
-    margin-bottom: 1.5rem;
-  }
-  .tech-tag {
-    font-size: 0.65rem;
-    color: var(--gray-600);
-    background: var(--tag-bg);
-    padding: 0.25rem 0.6rem;
-    border-radius: 2px;
-  }
-  .project-result {
-    font-size: 0.75rem; font-weight: 500;
-    color: var(--black);
-    padding-top: 1rem;
-    border-top: 1px solid var(--gray-200);
-  }
+  .project-tag { display: inline-block; font-size: 0.85rem; font-weight: 500; letter-spacing: 0.08em; text-transform: uppercase; color: #1a1a18; background: var(--tag-bg); padding: 0.35rem 0.8rem; border-radius: 2px; margin-bottom: 1.2rem; align-self: flex-start; }
+  .project-title { font-family: 'Syne', sans-serif; font-size: 1.4rem; font-weight: 700; letter-spacing: -0.02em; margin-bottom: 0.8rem; line-height: 1.2; }
+  .project-desc { font-size: 0.97rem; color: #1a1a18; line-height: 1.95; flex: 1; margin-bottom: 1.2rem; }
+  .project-meta { display: flex; flex-wrap: wrap; gap: 0.4rem; margin-bottom: 1.2rem; }
+  .tech-tag { font-size: 0.88rem; color: #1a1a18; background: var(--tag-bg); padding: 0.3rem 0.75rem; border-radius: 2px; }
+  .project-result { font-size: 0.95rem; font-weight: 500; color: var(--black); padding-top: 1rem; border-top: 1px solid var(--gray-200); }
   .project-result strong { color: var(--accent-dark); }
-
-  .project-link {
-    display: inline-flex; align-items: center; gap: 0.4rem;
-    font-size: 0.7rem; font-weight: 500;
-    color: var(--gray-600);
-    text-decoration: none;
-    letter-spacing: 0.05em;
-    margin-top: 1rem;
-    transition: color 0.2s;
-  }
+  .project-links { display: flex; gap: 1rem; margin-top: 1rem; flex-wrap: wrap; }
+  .project-link { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.88rem; font-weight: 500; color: #2e2e2a; text-decoration: none; letter-spacing: 0.05em; transition: color 0.2s; }
   .project-link:hover { color: var(--black); }
-  .project-link::after { content: '→'; }
+  .project-link.colab::after { content: '→'; }
+  .project-link.github { color: #2e2e2a; border-left: 1px solid var(--gray-200); padding-left: 1rem; }
+  .project-link.github:hover { color: var(--black); }
+  .project-link.github::before { content: '⌥ '; font-size: 0.75rem; }
 
-  /* ── SKILLS ── */
   #skills { background: var(--gray-100); }
-  .skills-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2rem;
-  }
-  .skill-group h3 {
-    font-family: 'Syne', sans-serif;
-    font-size: 0.85rem; font-weight: 700;
-    letter-spacing: 0.05em; text-transform: uppercase;
-    margin-bottom: 1rem;
-    padding-bottom: 0.75rem;
-    border-bottom: 2px solid var(--accent);
-    display: inline-block;
-  }
-  .skill-list {
-    list-style: none;
-    display: flex; flex-direction: column; gap: 0.5rem;
-  }
-  .skill-list li {
-    font-size: 0.78rem;
-    color: var(--gray-600);
-    padding-left: 1rem;
-    position: relative;
-  }
-  .skill-list li::before {
-    content: '—';
-    position: absolute; left: 0;
-    color: var(--accent-dark);
-  }
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 2rem; }
+  .skill-group h3 { font-family: 'Syne', sans-serif; font-size: 0.92rem; font-weight: 700; letter-spacing: 0.05em; text-transform: uppercase; margin-bottom: 1rem; padding-bottom: 0.75rem; border-bottom: 2px solid var(--accent); display: inline-block; }
+  .skill-list { list-style: none; display: flex; flex-direction: column; gap: 0.55rem; }
+  .skill-list li { font-size: 0.97rem; color: #1a1a18; padding-left: 1.2rem; position: relative; }
+  .skill-list li::before { content: '—'; position: absolute; left: 0; color: var(--accent-dark); }
 
-  /* ── CONTACT ── */
-  #contact {
-    background: var(--black);
-    color: var(--white);
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-  }
-  .contact-left {
-    padding: 6rem 3rem;
-    border-right: 1px solid var(--gray-800);
-  }
+  #contact { background: var(--black); color: var(--white); display: grid; grid-template-columns: 1fr 1fr; padding: 0; }
+  .contact-left { padding: 5rem 2.5rem; border-right: 1px solid var(--gray-800); }
   .contact-left .section-title { color: var(--white); }
   .contact-left .section-num { color: var(--gray-600); }
-  .contact-tagline {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(2rem, 3vw, 3.5rem);
-    line-height: 1.1;
-    color: var(--white);
-    margin-top: 2rem;
-  }
+  .contact-tagline { font-family: 'DM Serif Display', serif; font-size: clamp(1.8rem, 3vw, 3.2rem); line-height: 1.15; color: var(--white); margin-top: 2rem; }
   .contact-tagline em { color: var(--accent); font-style: italic; }
-  .contact-right {
-    padding: 6rem 3rem;
-    display: flex; flex-direction: column;
-    justify-content: center; gap: 1.5rem;
-  }
-  .contact-link {
-    display: flex; align-items: center; justify-content: space-between;
-    padding: 1.2rem 1.5rem;
-    border: 1px solid var(--gray-800);
-    text-decoration: none;
-    color: var(--white);
-    font-size: 0.8rem;
-    letter-spacing: 0.05em;
-    transition: all 0.2s;
-    border-radius: 2px;
-  }
-  .contact-link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-  .contact-link span { color: var(--gray-600); font-size: 0.7rem; }
+  .contact-right { padding: 5rem 2.5rem; display: flex; flex-direction: column; justify-content: center; gap: 1.2rem; }
+  .contact-link { display: flex; align-items: center; justify-content: space-between; padding: 1.2rem 1.5rem; border: 1px solid var(--gray-800); text-decoration: none; color: var(--white); font-size: 0.92rem; letter-spacing: 0.05em; transition: all 0.2s; border-radius: 2px; }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-link span { color: var(--gray-600); font-size: 0.85rem; }
 
-  /* ── FOOTER ── */
-  footer {
-    background: var(--black);
-    color: var(--gray-600);
-    padding: 1.5rem 3rem;
-    font-size: 0.7rem;
-    display: flex; justify-content: space-between; align-items: center;
-    border-top: 1px solid var(--gray-800);
-  }
+  footer { background: var(--black); color: var(--gray-600); padding: 1.5rem 2.5rem; font-size: 0.85rem; display: flex; justify-content: space-between; align-items: center; border-top: 1px solid var(--gray-800); }
 
-  /* ── ANIMATIONS ── */
-  .fade-in {
-    opacity: 0; transform: translateY(20px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
+  .fade-in { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
   .fade-in.visible { opacity: 1; transform: translateY(0); }
 
-  @media (max-width: 768px) {
+  @media (max-width: 900px) and (min-width: 601px) {
+    .projects-grid { grid-template-columns: repeat(2, 1fr); }
+  }
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-left { border-right: none; border-bottom: 1px solid var(--gray-200); padding: 6rem 2rem 3rem; }
+    .hero-right { padding: 3rem 2rem 4rem; }
+    .hero-tagline { max-width: 100%; }
+    #contact { grid-template-columns: 1fr; }
+    .contact-left { border-right: none; border-bottom: 1px solid var(--gray-800); padding: 4rem 2rem 3rem; }
+    .contact-right { padding: 3rem 2rem 4rem; }
+  }
+  @media (max-width: 600px) {
     nav { padding: 1rem 1.5rem; }
     .nav-links { display: none; }
-    .hero { grid-template-columns: 1fr; }
-    .hero-left { border-right: none; padding: 6rem 1.5rem 2rem; }
-    .hero-right { padding: 2rem 1.5rem 4rem; }
     section { padding: 4rem 1.5rem; }
+    .hero-left { padding: 5rem 1.5rem 2.5rem; }
+    .hero-right { padding: 2.5rem 1.5rem 3rem; }
+    .stat-box { padding: 1.2rem; }
+    .stat-number { font-size: 1.8rem; }
     .projects-grid { grid-template-columns: 1fr; }
     .skills-grid { grid-template-columns: 1fr; }
-    #contact { grid-template-columns: 1fr; }
-    .contact-left { border-right: none; padding: 4rem 1.5rem 2rem; }
-    .contact-right { padding: 2rem 1.5rem 4rem; }
-    footer { flex-direction: column; gap: 0.5rem; text-align: center; }
+    .contact-left { padding: 3rem 1.5rem 2rem; }
+    .contact-right { padding: 2rem 1.5rem 3rem; }
+    footer { flex-direction: column; gap: 0.5rem; text-align: center; padding: 1.5rem; }
+    .hero-cta { flex-direction: column; }
+    .btn { width: 100%; justify-content: center; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
   <a href="#" class="nav-logo">RR</a>
   <ul class="nav-links">
@@ -372,7 +135,6 @@
   </ul>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
   <div class="hero-left">
     <p class="hero-eyebrow">Portfolio — 2025</p>
@@ -394,7 +156,7 @@
         <div class="stat-label">Cumulative portfolio return over 2.5 years</div>
       </div>
       <div class="stat-box fade-in">
-        <div class="stat-number">8<span>×</span></div>
+        <div class="stat-number">8<span>x</span></div>
         <div class="stat-label">Reduction in ad cost-per-acquisition</div>
       </div>
       <div class="stat-box fade-in">
@@ -409,7 +171,6 @@
   </div>
 </section>
 
-<!-- PROJECTS -->
 <section id="projects">
   <div class="section-header">
     <span class="section-num">01</span>
@@ -417,6 +178,7 @@
   </div>
   <div class="projects-grid">
 
+    <!-- Dental Xray -->
     <div class="project-card fade-in">
       <span class="project-tag">Computer Vision · Medical AI</span>
       <h3 class="project-title">Dental Radiograph Analysis</h3>
@@ -429,13 +191,17 @@
         <span class="tech-tag">Google Colab</span>
       </div>
       <p class="project-result">mAP50 <strong>0.903</strong> on impacted tooth detection · 800 annotated X-rays</p>
-      <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/dental-xray/notebook.ipynb" target="_blank" class="project-link">Open in Colab </a>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/dental-xray/notebook.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/Dental-xray" target="_blank" class="project-link github">GitHub</a>
+      </div>
     </div>
 
+    <!-- Stock GNN -->
     <div class="project-card fade-in">
       <span class="project-tag">Graph ML · Quant Finance</span>
       <h3 class="project-title">Stock Correlation Network — GAT</h3>
-      <p class="project-desc">Models the S&P 500 as a correlation graph and predicts 30-day stock outperformance using a 3-layer Graph Attention Network with 4 attention heads. Community detection reveals sector-like clusters.</p>
+      <p class="project-desc">Models the S&amp;P 500 as a correlation graph and predicts 30-day stock outperformance using a 3-layer Graph Attention Network with 4 attention heads. Community detection reveals sector-like clusters.</p>
       <div class="project-meta">
         <span class="tech-tag">PyTorch Geometric</span>
         <span class="tech-tag">GAT</span>
@@ -444,9 +210,13 @@
         <span class="tech-tag">yfinance</span>
       </div>
       <p class="project-result"><strong>273</strong> edges · <strong>99</strong> stocks · Interactive network visualization</p>
-      <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/stock-gnn/notebook.ipynb" target="_blank" class="project-link">Open in Colab </a>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/stock-gnn/notebook.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/stock-gnn" target="_blank" class="project-link github">GitHub</a>
+      </div>
     </div>
 
+    <!-- Financial Sentiment -->
     <div class="project-card fade-in">
       <span class="project-tag">NLP · Fine-Tuning</span>
       <h3 class="project-title">Financial Sentiment — DistilBERT</h3>
@@ -458,27 +228,183 @@
         <span class="tech-tag">Financial PhraseBank</span>
       </div>
       <p class="project-result">Val accuracy <strong>97.4%</strong> · Test accuracy <strong>95.6%</strong></p>
-      <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/Financial-sentiment/FInancial_sentiment.ipynb" target="_blank" class="project-link">Open in Colab </a>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/Financial-sentiment/FInancial_sentiment.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/Financial-sentiment" target="_blank" class="project-link github">GitHub</a>
+      </div>
     </div>
 
+    <!-- Uplift Modeling -->
+    <div class="project-card fade-in">
+      <span class="project-tag">Causal ML · Marketing</span>
+      <h3 class="project-title">Uplift Modeling — Ad Campaign Optimization</h3>
+      <p class="project-desc">Causal ML system that identifies persuadable users in ad campaigns — users who convert only if shown an ad. Built on Criteo's real ad exposure dataset (500K users) using S-learner and T-learner approaches with LightGBM.</p>
+      <div class="project-meta">
+        <span class="tech-tag">scikit-uplift</span>
+        <span class="tech-tag">LightGBM</span>
+        <span class="tech-tag">Criteo Dataset</span>
+        <span class="tech-tag">Causal ML</span>
+      </div>
+      <p class="project-result">CVR <strong>+96%</strong> on targeted top 25% · Ad spend saved <strong>75%</strong></p>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/uplift-modeling/uplift_modeling.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/UpliftModeling" target="_blank" class="project-link github">GitHub</a>
+      </div>
+    </div>
+
+    <!-- EarningsMood -->
+    <div class="project-card fade-in">
+      <span class="project-tag">Audio ML · Quant Finance</span>
+      <h3 class="project-title">EarningsMood — CEO Voice Analysis</h3>
+      <p class="project-desc">Audio analysis pipeline that extracts acoustic features from FAANG Q4 2025 earnings calls and correlates CEO vocal mood with next-day stock price reaction. Confident tone predicts positive returns; hesitant tone predicts negative.</p>
+      <div class="project-meta">
+        <span class="tech-tag">librosa</span>
+        <span class="tech-tag">KMeans</span>
+        <span class="tech-tag">yfinance</span>
+        <span class="tech-tag">yt-dlp</span>
+        <span class="tech-tag">PCA</span>
+      </div>
+      <p class="project-result">Spearman r = <strong>0.866</strong> between voice confidence and next-day stock return</p>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/earnings-mood/earnings_mood.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/earnings_mood" target="_blank" class="project-link github">GitHub</a>
+      </div>
+    </div>
+
+    <!-- Instacart GNN RL -->
+    <div class="project-card fade-in">
+      <span class="project-tag">GNN · Reinforcement Learning</span>
+      <h3 class="project-title">SF Delivery Optimizer — GNN + RL</h3>
+      <p class="project-desc">Real-time delivery route optimization for San Francisco using a Graph Attention Network for delay prediction and a PPO agent for dynamic rerouting. Models 3 warehouses, 15 neighborhoods, and 16K+ orders on real OSM road data.</p>
+      <div class="project-meta">
+        <span class="tech-tag">PyTorch Geometric</span>
+        <span class="tech-tag">PPO</span>
+        <span class="tech-tag">OSMnx</span>
+        <span class="tech-tag">Gymnasium</span>
+        <span class="tech-tag">Folium</span>
+      </div>
+      <p class="project-result">Delay reduced <strong>2.06 min</strong> per delivery · Reroute rate <strong>54.6%</strong></p>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/instacart_optimizer_gnn_rl/blob/main/instacart_optimizer_gnn_rl.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/instacart_optimizer_gnn_rl" target="_blank" class="project-link github">GitHub</a>
+      </div>
+    </div>
+
+    <!-- Search Relevance -->
+    <div class="project-card fade-in">
+      <span class="project-tag">NLP · Information Retrieval</span>
+      <h3 class="project-title">Search Relevance — NGD vs BM25 vs SBERT</h3>
+      <p class="project-desc">Comparison of three search relevance approaches on Amazon's ESCI dataset (50K query-product pairs). Corpus-adapted Normalized Google Distance matches SBERT on NDCG@10 with zero training, outperforming BM25 on ranking quality.</p>
+      <div class="project-meta">
+        <span class="tech-tag">SBERT</span>
+        <span class="tech-tag">BM25</span>
+        <span class="tech-tag">NGD</span>
+        <span class="tech-tag">Amazon ESCI</span>
+        <span class="tech-tag">sentence-transformers</span>
+      </div>
+      <p class="project-result">NGD NDCG@10 <strong>0.9506</strong> vs SBERT <strong>0.9501</strong> — zero training</p>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/search-relevance/search_relevance.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/search-relevance" target="_blank" class="project-link github">GitHub</a>
+      </div>
+    </div>
+
+    <!-- SoccerIQ -->
+    <div class="project-card fade-in">
+      <span class="project-tag">Reinforcement Learning · Sports</span>
+      <h3 class="project-title">SoccerIQ — RL Pass Strategy</h3>
+      <p class="project-desc">Deep Q-Network agent that learns optimal passing strategies against specific World Cup 2022 opponents using StatsBomb data. Learns to avoid high-pressure zones and find efficient paths to goal — Argentina ranked hardest, matching real tournament results.</p>
+      <div class="project-meta">
+        <span class="tech-tag">DQN</span>
+        <span class="tech-tag">StatsBomb</span>
+        <span class="tech-tag">PyTorch</span>
+        <span class="tech-tag">OpenAI Gym</span>
+      </div>
+      <p class="project-result">Goal rate <strong>75–95%</strong> vs 6 opponents · Argentina hardest to break down</p>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/soccer-iq/soccer_iq.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/soccer_iq" target="_blank" class="project-link github">GitHub</a>
+      </div>
+    </div>
+
+    <!-- SoccerMood -->
+    <div class="project-card fade-in">
+      <span class="project-tag">Computer Vision · Sports</span>
+      <h3 class="project-title">SoccerMood — Player Emotion Analysis</h3>
+      <p class="project-desc">Computer vision pipeline that detects faces and classifies emotions from soccer match footage in real-time. Tested on UEFA Euro 2024 Portugal vs France penalty shootout — tracks emotion timelines across 92 frames and 94 faces.</p>
+      <div class="project-meta">
+        <span class="tech-tag">DeepFace</span>
+        <span class="tech-tag">OpenCV</span>
+        <span class="tech-tag">yt-dlp</span>
+        <span class="tech-tag">Matplotlib</span>
+      </div>
+      <p class="project-result">94 faces · 7 emotions · Avg sentiment <strong>-0.178</strong> (high-pressure match)</p>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/soccer-mood/soccer_mood.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/soccer_mood" target="_blank" class="project-link github">GitHub</a>
+      </div>
+    </div>
+
+    <!-- Soccer Strategy -->
+    <div class="project-card fade-in">
+      <span class="project-tag">Graph ML · Sports Analytics</span>
+      <h3 class="project-title">Soccer Pass Optimization — Dijkstra + XGBoost</h3>
+      <p class="project-desc">Two-stage passing strategy system on StatsBomb World Cup 2022 data. Dijkstra pathfinding finds optimal passing routes, then XGBoost learns opponent-specific strategies from 68,515 passes across 64 matches and 32 teams.</p>
+      <div class="project-meta">
+        <span class="tech-tag">XGBoost</span>
+        <span class="tech-tag">Dijkstra</span>
+        <span class="tech-tag">StatsBomb</span>
+        <span class="tech-tag">NetworkX</span>
+      </div>
+      <p class="project-result"><strong>68,515</strong> passes · <strong>32</strong> teams · Opponent-aware routing</p>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/soccer-strategy/soccer_strategy.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/soccer_strategy" target="_blank" class="project-link github">GitHub</a>
+      </div>
+    </div>
+
+    <!-- Credit Risk -->
+    <div class="project-card fade-in">
+      <span class="project-tag">ML Pipeline · Credit Risk</span>
+      <h3 class="project-title">Credit Risk ML Pipeline — Lending Club</h3>
+      <p class="project-desc">End-to-end credit default prediction on 115,979 real US loans — covering EDA, feature engineering (KNN imputation, Winsorization, RobustScaler, target encoding), KMeans + DBSCAN borrower segmentation, LightGBM with 5-fold CV, and full SHAP explainability. Interest rate, loan term, and sub-grade dominate default risk with an 11.5x spread between safest and riskiest decile.</p>
+      <div class="project-meta">
+        <span class="tech-tag">LightGBM</span>
+        <span class="tech-tag">SHAP</span>
+        <span class="tech-tag">SMOTE</span>
+        <span class="tech-tag">UMAP</span>
+        <span class="tech-tag">KMeans</span>
+        <span class="tech-tag">DBSCAN</span>
+      </div>
+      <p class="project-result">ROC-AUC <strong>0.709</strong> · Top 30% captures <strong>55%</strong> of defaults · D10 default rate <strong>34.5%</strong></p>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/credit-risk/credit_risk.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/credit-risk" target="_blank" class="project-link github">GitHub</a>
+      </div>
+    </div>
+
+    <!-- 10K RAG -->
     <div class="project-card fade-in">
       <span class="project-tag">LLM · RAG · NLP</span>
       <h3 class="project-title">10-K RAG — Nasdaq 100</h3>
-      <p class="project-desc">Retrieval-Augmented Generation system over SEC 10-K filings for the top 20 Nasdaq 100 companies. Ask natural language questions and compare risk factors, revenue trends, and strategy across companies.</p>
+      <p class="project-desc">Retrieval-Augmented Generation system over SEC 10-K filings for the top 20 Nasdaq 100 companies. Ask natural language questions — "What are NVIDIA's main risk factors?" or "Compare AI strategy across NVIDIA, Microsoft, and Google" — and get answers grounded in official filings via Llama 3.1.</p>
       <div class="project-meta">
-        <span class="tech-tag">Mistral</span>
-        <span class="tech-tag">LangChain</span>
+        <span class="tech-tag">Llama 3.1</span>
+        <span class="tech-tag">Groq API</span>
         <span class="tech-tag">ChromaDB</span>
         <span class="tech-tag">SEC EDGAR</span>
         <span class="tech-tag">sentence-transformers</span>
       </div>
-      <p class="project-result">Coming soon</p>
+      <p class="project-result"><strong>3,334</strong> chunks · <strong>20</strong> companies · all-MiniLM-L6-v2 embeddings</p>
+      <div class="project-links">
+        <a href="https://colab.research.google.com/github/rezar362/Portfolio/blob/main/10k-rag/RAG_10K.ipynb" target="_blank" class="project-link colab">Open in Colab</a>
+        <a href="https://github.com/rezar362/Portfolio/tree/main/10k-rag" target="_blank" class="project-link github">GitHub</a>
+      </div>
     </div>
 
   </div>
 </section>
 
-<!-- SKILLS -->
 <section id="skills">
   <div class="section-header">
     <span class="section-num">02</span>
@@ -486,42 +412,75 @@
   </div>
   <div class="skills-grid">
     <div class="skill-group fade-in">
-      <h3>ML & AI</h3>
+      <h3>ML &amp; AI</h3>
       <ul class="skill-list">
         <li>PyTorch, PyTorch Geometric</li>
-        <li>HuggingFace Transformers</li>
-        <li>XGBoost, LSTM, GAT</li>
-        <li>LangChain, RAG systems</li>
+        <li>LightGBM, XGBoost, LSTM</li>
+        <li>GAT, GCN, DQN, PPO</li>
+        <li>HuggingFace, DistilBERT</li>
+        <li>SHAP, MLflow, Evidently AI</li>
+        <li>Stable-Baselines3, Gymnasium</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Computer Vision</h3>
+      <ul class="skill-list">
         <li>YOLOv8, SAM2</li>
-        <li>MLflow, Evidently AI</li>
+        <li>OpenCV, DeepFace</li>
+        <li>Object detection, segmentation</li>
+        <li>Roboflow, annotation pipelines</li>
+        <li>Medical imaging (X-ray)</li>
+        <li>Emotion recognition</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
+      <h3>Data Science</h3>
+      <ul class="skill-list">
+        <li>Feature engineering, Winsorization</li>
+        <li>KNN imputation, SMOTE</li>
+        <li>KMeans, DBSCAN, PCA, UMAP</li>
+        <li>Causal ML, uplift modeling</li>
+        <li>Audio ML, librosa</li>
+        <li>Search relevance, BM25, SBERT</li>
       </ul>
     </div>
     <div class="skill-group fade-in">
       <h3>Quant Finance</h3>
       <ul class="skill-list">
         <li>Portfolio optimization</li>
-        <li>Tail risk hedging</li>
-        <li>Backtesting frameworks</li>
+        <li>Credit risk modeling</li>
         <li>Earnings forecasting</li>
+        <li>Tail risk hedging</li>
         <li>Factor models</li>
         <li>Crypto trading systems</li>
       </ul>
     </div>
     <div class="skill-group fade-in">
+      <h3>LLM &amp; RAG</h3>
+      <ul class="skill-list">
+        <li>LangChain, RAG systems</li>
+        <li>Llama 3.1 via Groq API</li>
+        <li>ChromaDB, vector search</li>
+        <li>sentence-transformers</li>
+        <li>SEC EDGAR ingestion</li>
+        <li>Prompt engineering</li>
+      </ul>
+    </div>
+    <div class="skill-group fade-in">
       <h3>Engineering</h3>
       <ul class="skill-list">
+        <li>Linux, Bash scripting</li>
         <li>Python, PySpark, SQL</li>
         <li>AWS (S3, Lambda)</li>
         <li>Databricks, Redshift</li>
         <li>FastAPI, Gradio</li>
         <li>GitHub Actions, Docker</li>
-        <li>ChromaDB, Plotly</li>
+        <li>OSMnx, NetworkX, Folium</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- CONTACT -->
 <section id="contact">
   <div class="contact-left">
     <div class="section-header" style="border-color:#2e2e2a">
@@ -543,7 +502,6 @@
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
   <span>© 2025 Reza Roshani</span>
   <span>ML · Quant Finance · Optimization</span>
@@ -557,9 +515,7 @@
       }
     });
   }, { threshold: 0.1 });
-
   document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
 </script>
-
 </body>
 </html>
