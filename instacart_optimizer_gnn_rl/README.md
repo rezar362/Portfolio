@@ -1,6 +1,6 @@
 # instacart_optimizer_gnn_rl
 
-[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/YOUR_USERNAME/instacart_optimizer_gnn_rl/blob/main/SF_Delivery_Optimization.ipynb)
+[![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/rrtabrizi/instacart_optimizer_gnn_rl/blob/main/instacart_optimizer_gnn_rl.ipynb)
 
 
 Real-time delivery route optimization for San Francisco using a Graph Neural Network (GNN) for delay prediction and a Reinforcement Learning (RL) agent for dynamic rerouting — modeled on Instacart-style order patterns.
